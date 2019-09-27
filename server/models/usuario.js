@@ -8,10 +8,6 @@ let rolesValidos = {
 };
 
 
-// var mySchema = mongoose.Schema( /* put your schema definition here */ );
-//mySchema.plugin(uniqueValidator);
-
-
 let Schema = mongoose.Schema;
 
 let usuarioSchema = new Schema({
