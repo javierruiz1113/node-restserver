@@ -15,10 +15,10 @@ app.get('/usuarios', [verificaToken], (req, res) => {
     // });
 
     let desde = req.query.desde || 0;
-    desde = Number(desde);
+    desde = Number(desde); // para transformar a numero
 
     let limite = req.query.limite || 5;
-    limite = Number(limite);
+    limite = Number(limite); // para transformar a numero
 
     Usuario.find({ estado: true }, 'nombre email role estado google img ')
         .skip(desde) //salta los primeros "x" usuarios de la DB
@@ -94,10 +94,10 @@ app.put('/usuarios/:id', [verificaToken, verificaAdmin_Role], (req, res) => {
 app.delete('/usuarios/:id', [verificaToken, verificaAdmin_Role], (req, res) => {
     let id = req.params.id;
     //Usuario.findByIdAndRemove(id, (err, usuarioBorrado) => {  // borra fisicamente  de la DB
-    let canbiaEstado = {
+    let cambiaEstado = {
         estado: false
     };
-    Usuario.findByIdAndUpdate(id, canbiaEstado, { new: true, }, (err, usuarioBorrado) => {
+    Usuario.findByIdAndUpdate(id, cambiaEstado, { new: true, }, (err, usuarioBorrado) => {
         if (err) {
             return res.status(400).json({
                 ok: false,

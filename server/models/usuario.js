@@ -42,7 +42,7 @@ let usuarioSchema = new Schema({
         default: false
     }
 });
-// oculta el valor password en el momento q se implime json
+// oculta el valor password en el momento q se imprime json
 usuarioSchema.methods.toJSON = function() {
     let user = this;
     let userObject = user.toObject();
